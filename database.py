@@ -31,14 +31,17 @@ cursor.execute(" CREATE INDEX IF NOT EXISTS idx_email ON Users (email)")
 
 # cursor.executemany("INSERT INTO Users(username,email,age,balance) VALUES (?,?,?,?)", users_data)
 
-# cursor.execute('SELECT id FROM Users')
-# user_ids = [row[0] for row in cursor.fetchall()]
+cursor.execute('SELECT id FROM Users')
+user_ids = [row[0] for row in cursor.fetchall()]
+user_ids.sort()
 
-# for i in range(1, len(user_ids), 2):
+
+
+# for i in range(0, len(user_ids), 2):
 #     user_id = user_ids[i]
 #     cursor.execute("UPDATE Users SET balance = ? WHERE id = ?", (500, user_id))
 
-# for i in range(1, len(user_ids), 3):
+# for i in range(0, len(user_ids), 3):
 #     user_id = user_ids[i]
 #     cursor.execute("DELETE FROM Users WHERE id = ?", (user_id,))
 
